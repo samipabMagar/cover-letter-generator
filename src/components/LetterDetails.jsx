@@ -47,7 +47,7 @@ const LetterDetails = (props) => {
               <label className="font-semibold mb-1" htmlFor="">
                 Your Name
               </label>
-              <input
+              <input value={props.name} onChange={(e) => props.setName(e.target.value)}
                 className="py-2 px-4  bg-white rounded"
                 type="text"
                 placeholder="eg: Samipab Roka"
@@ -57,7 +57,7 @@ const LetterDetails = (props) => {
               <label className="font-semibold mb-1" htmlFor="">
                 Address
               </label>
-              <input
+              <input value={props.address} onChange={(e) => props.setAddress(e.target.value)}
                 className="py-2 px-4  bg-white rounded"
                 type="text"
                 placeholder="full address"

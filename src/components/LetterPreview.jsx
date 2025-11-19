@@ -15,7 +15,7 @@ const LetterPreview = (props) => {
           <h4>Dear Sir/Madam,</h4>
           <p className="">
             I am writing this letter to request you to kindly register a {""}
-             {props.domainName ? domainName : "yourdomain.com.np"} domain for me based on my name. I have provided my
+             {props.domainName ? props.domainName : "yourdomain.com.np"} domain for me based on my name. I have provided my
             personal details, and also attached a scanned copy of my citizenship
             with this letter. I would be very glad if you approve my domain
             registration request.
@@ -24,10 +24,10 @@ const LetterPreview = (props) => {
             Thank you very much for consideration. I look forward to hearing
             from you soon.
           </p>
-          <h4><span className='font-semibold'>Domain name:</span> {!props.domainName ? "yourdomain.com.np" : domainName}</h4>
+          <h4><span className='font-semibold'>Domain name:</span> {!props.domainName ? "yourdomain.com.np" : props.domainName}</h4>
           <h4><span className="font-semibold">Primary Name Server:</span> {props.primaryServer ? props.primaryServer: "ns101.prabhuhost.com"}</h4>
           <h4><span className='font-semibold'>Secondary Name Server:</span> {props.secondaryServer ? props.secondaryServer: "ns102.prabhuhost.com"}</h4>
-          <p>Sincerely,<br /> Name: [Your Name] <br /> Address: [Your Address]</p>
+          <p>Sincerely,<br /> Name: {props.name ? props.name: "[Your Name]"} <br /> Address: {props.address ? props.address : "[Your Address]"}</p>
         </div>
   )
 }
