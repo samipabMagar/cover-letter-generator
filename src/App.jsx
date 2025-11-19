@@ -1,24 +1,31 @@
-import React from 'react'
+import React, { useRef } from "react";
+import LetterFormAndPreview from "./components/LetterFormAndPreview";
+import Footer from "./components/Footer";
+import html2canvas from "html2canvas";
+
 
 const App = () => {
+  const coverLetter = useRef();
+  const downloadCoverLetter=async (e) => {
+    e.preventDefault();
+    const canvas = await html2canvas(coverLetter.current);
+    const dataURL = canvas.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.href = dataURL;
+    link.download = "cover-letter.png";
+    link.click();
+    
+  }
   return (
-    <div className='bg-[#F8FAFC] w-full h-min-screen'>
-      <h1 className='text-[#0F172A] text-center'>Generate Your Cover Letter</h1>
-      <form action="">
-        <label htmlFor="">Domain Name</label>
-        <input type="text" placeholder='eg: example.com.np' />
-        <label htmlFor="">Primary Name Server</label>
-        <input type="text" placeholder='eg: ns1.babal.host ' />
-        <label htmlFor="">Secondary Name Server</label>
-        <input type="text" placeholder='eg: ns2.babal.host ' />
-        <label htmlFor="">Your Name</label>
-        <input type="text" placeholder='eg: Samipab Roka' />
-        <label htmlFor="">Address</label>
-        <input type="text" placeholder='full address' />
-        <button>Download</button>
-      </form>
+    <div className="bg-[#c5deec] w-full h-min-screen pb-5">
+      <h1 className="text-zinc-800 font-bold py-6 px-5 bg-gradient-to-r from-blue-400 via-purple-200 to-pink-300 text-2xl text-center">
+        Generate Your Cover Letter
+      </h1>
+      <LetterFormAndPreview coverLetter={coverLetter} handleDownload={downloadCoverLetter}/>
+        <hr  className="mt-4 text-amber-50"/>
+       <Footer/>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
