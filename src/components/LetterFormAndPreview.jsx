@@ -9,7 +9,7 @@ const LetterFormAndPreview = ({handleDownload, coverLetter}) => {
   const[name, setName] = useState("");
   const[address, setAddress] = useState("");
   return (
-    <div>
+    <div className='md:flex'>
         <LetterDetails name={name} setName={setName} address= {address} setAddress={setAddress} setDomainName={setDomainName} primaryServer={primaryServer} setPrimaryServer={setPrimaryServer} secondaryServer={secondaryServer} setSecondaryServer={setSecondaryServer} domainName={domainName} handleDownload={handleDownload}/>
        <LetterPreview name={name} address={address} secondaryServer={secondaryServer} setSecondaryServer={setSecondaryServer} primaryServer={primaryServer} domainName={domainName} coverLetter={coverLetter}/>
       

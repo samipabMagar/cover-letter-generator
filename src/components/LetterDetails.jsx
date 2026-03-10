@@ -3,7 +3,7 @@ import React from 'react'
 const LetterDetails = (props) => {
   
   return (
-    <div className="border  border-zinc-400 shadow-2xl mt-2  py-5 px-5  mx-4 rounded-lg">
+    <div className="border md:flex-1/2  border-zinc-400 shadow-2xl mt-2  py-5 px-5  mx-4 rounded-lg">
           <h3 className="text-center mb-4 text-xl font-semibold">
             Letter Details
           </h3>
