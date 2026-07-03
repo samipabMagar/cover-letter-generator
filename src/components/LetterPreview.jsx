@@ -1,10 +1,15 @@
 import React from 'react'
 
 const LetterPreview = (props) => {
-  
+  const currentDate = new Date().toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  });
+
   return (
      <div ref={props.coverLetter} className="bg-white mt-2 mx-4 text-[15px] gap-5 flex flex-col py-2  px-5 rounded-lg">
-          <h4 className="text-right "><span className="font-semibold">Date:</span> 19 Nov 2025</h4>
+          <h4 className="text-right "><span className="font-semibold">Date:</span> {props.date || currentDate}</h4>
           <p>
             To,
             <br /> The Hostmaster,
